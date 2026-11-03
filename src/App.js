@@ -11,12 +11,11 @@ function App() {
           <img src="/leaf.png" alt="GreenLeaf Logo" />
           <h2><b><i>GreenLeaf</i></b></h2>
         </div>
-
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#events">Events</a>
-          <a href="#volunteer">Volunteer</a>
-        </nav>
+<nav>
+  <a href="/home">Home</a>
+  <a href="/events">Events</a>
+  <a href="/volunteer">Volunteer</a>
+</nav>
 
       </header>
 
