@@ -1,4 +1,4 @@
-
+/* General Styling */
 * {
   margin: 0;
   padding: 0;
@@ -7,78 +7,99 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #becab6;
-  color: #263d2b;
+  background-color: #F5F1E8;
+  color: #343D2C;
 }
 
+/* Header */
 .App-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 8%;
-  background-color: white;
-  margin-bottom: 20px;
+  background-color: #F5F1E8;
+  box-shadow: 0 2px 8px rgba(52, 61, 44, 0.08);
 }
 
-h2 {
-  color: #287a3d;
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.logo h2 {
+  color: #536B3C;
   font-size: 28px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Navigation */
 nav a {
   text-decoration: none;
-  color: #263d2b;
+  color: #343D2C;
   margin-left: 25px;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #287a3d;
+  color: #718B45;
 }
 
+/* Hero Section */
 .hero {
   text-align: center;
-  padding: 110px 20px;
-  background-color: #dcefd8;
+  padding: 120px 20px;
+  background-color: #DDE5CF;
 }
 
 .hero h1 {
   font-size: 42px;
   margin-bottom: 20px;
-  color: #246b36;
+  color: #435B32;
 }
 
 .hero p {
   font-size: 18px;
   line-height: 1.8;
   margin-bottom: 30px;
+  color: #343D2C;
 }
 
+/* Contact Button */
 .button {
   display: inline-block;
-  background-color: #287a3d;
+  background-color: #718B45;
   color: white;
-  padding: 14px 25px;
+  padding: 14px 28px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-top: 10px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #19552a;
+  background-color: #536B3C;
 }
 
+/* Events Section */
 .info {
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 20px;
+  background-color: #F5F1E8;
 }
 
 .info h2,
 .volunteer h2 {
-  color: #246b36;
+  color: #435B32;
   margin-bottom: 20px;
 }
 
@@ -86,22 +107,27 @@ nav a:hover {
 .volunteer p {
   line-height: 1.8;
   font-size: 17px;
+  color: #343D2C;
 }
 
+/* Volunteer Section */
 .volunteer {
   text-align: center;
-  padding: 60px 20px;
-  background-color: #e7f2e3;
+  padding: 70px 20px;
+  background-color: #EBE8D9;
 }
 
+/* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #246b36;
+  padding: 25px;
+  background-color: #435B32;
   color: white;
 }
 
+/* Mobile Responsive Design */
 @media (max-width: 600px) {
+
   .App-header {
     flex-direction: column;
     gap: 20px;
@@ -109,9 +135,19 @@ footer {
 
   nav a {
     margin: 0 8px;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 80px 20px;
   }
 
   .hero h1 {
     font-size: 30px;
   }
+
+  .hero p {
+    font-size: 16px;
+  }
+
 }
