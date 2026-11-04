@@ -151,3 +151,57 @@ footer {
   }
 
 }
+
+/*  Task 2 */
+/* Events Section Styling */
+
+.events-container {
+  padding: 60px 30px;
+  background-color: #f5f9f2;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.events-container h1 {
+  color: #435b32;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.events-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.event-card {
+  background-color: white;
+  width: 300px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+}
+
+.event-card h2 {
+  color: #435b32;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.event-date {
+  color: #718b45;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.event-card p {
+  line-height: 1.6;
+  color: #555;
+}
