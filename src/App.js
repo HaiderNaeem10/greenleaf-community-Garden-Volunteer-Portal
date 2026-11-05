@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Events from './pages/events';
+import Volunteer from './pages/Volunteer';
 
 function Home() {
 return (
@@ -46,13 +47,14 @@ return (
     <header className="App-header">
       <div className="logo">
         <img src="/leaf.png" alt="GreenLeaf Logo" />
-        <h2><b><i>GreenLeaf</i></b></h2>
+        <h2>GreenLeaf</h2>
       </div>
 
       <nav>
         <Link to="/">Home</Link>
         <Link to="/events">Events</Link>
-        <a href="/#volunteer">Volunteer</a>
+        <Link to="/volunteer">Volunteer</Link>
+        
       </nav>
     </header>
 
@@ -60,6 +62,7 @@ return (
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path="/events" element={<Events />} />
+      <Route path="/volunteer" element={<Volunteer />} />
     </Routes>
 
     <footer>

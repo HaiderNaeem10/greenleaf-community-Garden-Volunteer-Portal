@@ -205,3 +205,43 @@ footer {
   line-height: 1.6;
   color: #555;
 }
+/* Volunteer Section Styling */
+.volunteer-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #f0f8f0;
+  border-radius: 10px;
+}
+
+.volunteer-container h1 {
+  text-align: center;
+  color: green;
+}
+
+.volunteer-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.volunteer-container input,
+.volunteer-container select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.volunteer-container button {
+  padding: 12px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.volunteer-container h3 {
+  text-align: center;
+  color: green;
+}
