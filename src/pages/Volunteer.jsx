@@ -1,67 +1,79 @@
-import React, { useState } from "react";
-import events from "../data/events.json";
+import React, { useEffect, useState } from "react";
+import { supabase } from "../supabase/client";
 
 function Volunteer() {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [selectedEvent, setSelectedEvent] = useState("");
+  const [events, setEvents] = useState([]);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  useEffect(() => {
+    getEvents();
+  }, []);
 
-    if (!name || !email || !selectedEvent) {
-      alert("Please fill all fields!");
-      return;
+  async function getEvents() {
+    const { data, error } = await supabase
+      .from("events")
+      .select("id, title")
+      .order("date", { ascending: true });
+
+    if (error) {
+      console.log(error);
+      setMessage("Could not load events.");
+    } else {
+      setEvents(data);
     }
 
-    const volunteer = {
-      name: name,
-      email: email,
-      event: selectedEvent
-    };
+    setLoading(false);
+  }
 
-    // Get existing volunteers
-    const oldData = JSON.parse(
-      localStorage.getItem("volunteers") || "[]"
-    );
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-    // Add new volunteer
-    oldData.push(volunteer);
+    setSubmitting(true);
+    setMessage("");
 
-    // Save data in localStorage
-    localStorage.setItem(
-      "volunteers",
-      JSON.stringify(oldData)
-    );
+    const { error } = await supabase
+      .from("volunteers")
+      .insert([
+        {
+          name: name,
+          email: email,
+          event_id: selectedEvent
+        }
+      ]);
 
-    // Show confirmation
-    setMessage("Thank you, " + name + "!");
+    if (error) {
+      console.log("Registration error:", error);
+      setMessage("Registration failed. Please try again.");
+    } else {
+      setMessage("Thank you, " + name + "! Registration successful.");
 
-    // Clear form
-    setName("");
-    setEmail("");
-    setSelectedEvent("");
+      setName("");
+      setEmail("");
+      setSelectedEvent("");
+    }
+
+    setSubmitting(false);
   }
 
   return (
     <div className="volunteer-container">
-
       <h1>Volunteer Sign-up 🌱</h1>
 
       <form onSubmit={handleSubmit}>
-
         <label>Name:</label>
-       <input
-  type="text"
-  placeholder="Enter your name"
-  value={name}
-  onChange={(e) => setName(e.target.value)}
-  pattern="[A-Za-z ]+"
-  title="Name should contain letters only"
-  required
-/>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          pattern="[A-Za-z ]+"
+          required
+        />
 
         <label>Email:</label>
         <input
@@ -78,24 +90,23 @@ function Volunteer() {
           onChange={(e) => setSelectedEvent(e.target.value)}
           required
         >
-          <option value="">Choose an event</option>
+          <option value="">
+            {loading ? "Loading events..." : "Choose an event"}
+          </option>
 
           {events.map((event) => (
-            <option key={event.id} value={event.title}>
+            <option key={event.id} value={event.id}>
               {event.title}
             </option>
           ))}
-
         </select>
 
-        <button type="submit">
-          Submit
+        <button type="submit" disabled={loading || submitting}>
+          {submitting ? "Submitting..." : "Submit"}
         </button>
-
       </form>
 
       {message && <h3>{message}</h3>}
-
     </div>
   );
 }

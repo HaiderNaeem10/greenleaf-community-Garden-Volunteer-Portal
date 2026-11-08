@@ -1,20 +1,20 @@
 [
   {
     "id": 1,
-    "title": "Community Garden Day",
-    "date": "2026-11-10",
-    "description": "Join our community to clean and improve the garden."
+    "title": "Community Tree Plantation",
+    "date": "November 15, 2026",
+    "description": "Join us to plant trees and make our community greener."
   },
   {
     "id": 2,
-    "title": "Tree Plantation Day",
-    "date": "2026-11-15",
-    "description": "Help us plant new trees and make our environment greener."
+    "title": "Garden Cleaning Day",
+    "date": "November 20, 2026",
+    "description": "Help us clean and maintain our beautiful community garden."
   },
   {
     "id": 3,
-    "title": "Organic Gardening Workshop",
-    "date": "2026-11-20",
-    "description": "Learn how to grow healthy vegetables organically."
+    "title": "Plant Growing Workshop",
+    "date": "November 25, 2026",
+    "description": "Learn how to grow and care for healthy plants."
   }
 ]
