@@ -135,7 +135,7 @@ Save the screenshot inside your project in a folder named "screenshots", using t
 
 Then add this Markdown:
 
-![GreenLeaf Events Page](public/screenshots/events-page.png)
+![GreenLeaf Events Page](screenshots/events-page.png)
 
 Deployment
 
