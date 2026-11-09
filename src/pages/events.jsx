@@ -4,28 +4,46 @@ import { supabase } from "../supabase/client";
 function Events() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     getEvents();
   }, []);
 
   async function getEvents() {
-    const { data, error } = await supabase
-      .from("events")
-      .select("*")
-      .order("date", { ascending: true });
+    try {
+      setLoading(true);
+      setError("");
 
-    if (error) {
-      console.log("Error fetching events:", error);
-    } else {
-      setEvents(data);
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .order("date", { ascending: true });
+
+      if (error) {
+        throw error;
+      }
+
+      setEvents(data || []);
+    } catch (err) {
+      console.log("Error fetching events:", err);
+      setError("Unable to load events. Please try again later.");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   }
 
   if (loading) {
     return <h2>Loading events...</h2>;
+  }
+
+  if (error) {
+    return (
+      <div className="events-container">
+        <h2>{error}</h2>
+        <button onClick={getEvents}>Try Again</button>
+      </div>
+    );
   }
 
   return (
@@ -39,7 +57,7 @@ function Events() {
           events.map((event) => (
             <div className="event-card" key={event.id}>
               <h2>{event.title}</h2>
-              <p className="event-date">📅 {event.date}</p>
+              <p>📅 {event.date}</p>
               <p>{event.description}</p>
               <p>📍 {event.location}</p>
             </div>
