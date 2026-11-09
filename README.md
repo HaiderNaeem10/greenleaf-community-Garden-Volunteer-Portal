@@ -125,17 +125,6 @@ npm start
 
 8. Open the local URL displayed in your terminal.
 
-Project Screenshot
-
-Upcoming Garden Events
-
-Add your Events page screenshot here.
-
-Save the screenshot inside your project in a folder named "screenshots", using the filename "events-page.png".
-
-Then add this Markdown:
-
-![GreenLeaf Events Page](screenshots/events-page.png)
 
 Deployment
 
@@ -152,3 +141,11 @@ Developer
 Haider Naeem
 
 Software Engineering Student
+
+Project Screenshot
+
+Upcoming Garden Events
+
+The Events page dynamically displays garden events fetched from the Supabase database.
+
+![GreenLeaf Events Page](screenshots/events-page.png)
