@@ -216,7 +216,7 @@ Upcoming Garden Events
 
 The Events page dynamically displays garden events fetched from the Supabase database.
 
-"GreenLeaf Events Page" (screenshots/events-page.png)
+![GreenLeaf Events Page](screenshots/events-page.png)
 
 ---
 
