@@ -245,3 +245,245 @@ footer {
   text-align: center;
   color: green;
 }
+
+/* Task 4 - Admin Login Styling */
+
+.admin-login {
+  max-width: 420px;
+  margin: 70px auto;
+  padding: 40px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(52, 61, 44, 0.15);
+  text-align: center;
+}
+
+.admin-login h2 {
+  color: #435B32;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.admin-login p {
+  color: #536B3C;
+  margin-bottom: 25px;
+}
+
+.admin-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-login input {
+  padding: 14px;
+  border: 1px solid #ccd5c0;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.admin-login input:focus {
+  border-color: #718B45;
+}
+
+.admin-login button {
+  padding: 14px;
+  background-color: #536B3C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-login button:hover {
+  background-color: #435B32;
+}
+
+.admin-login button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-login form + p {
+  margin-top: 20px;
+  color: #b00020;
+}
+
+/* Admin Dashboard Styling */
+
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 30px;
+  min-height: 70vh;
+}
+
+.admin-dashboard h1 {
+  color: #435B32;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.admin-dashboard > p {
+  color: #536B3C;
+  margin-bottom: 20px;
+}
+
+/* Logout Button */
+
+.admin-dashboard > button {
+  background-color: #536B3C;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.admin-dashboard > button:hover {
+  background-color: #435B32;
+}
+
+/* Volunteer Overview */
+
+.admin-dashboard h2 {
+  color: #435B32;
+  margin-bottom: 20px;
+}
+
+/* Volunteer Table */
+
+.admin-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.admin-dashboard th {
+  background-color: #435B32;
+  color: white;
+  padding: 16px;
+  text-align: left;
+}
+
+.admin-dashboard td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  color: #343D2C;
+}
+
+.admin-dashboard tr:hover {
+  background-color: #f0f5eb;
+}
+
+/* Admin Statistics Cards */
+
+.admin-stats {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 25px;
+margin: 30px 0;
+}
+
+.stat-card {
+background-color: white;
+padding: 30px 20px;
+border-radius: 12px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+border-left: 5px solid #718B45;
+transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+transform: translateY(-5px);
+}
+
+.stat-card h3 {
+color: #536B3C;
+font-size: 17px;
+margin-bottom: 15px;
+}
+
+.stat-card p {
+color: #435B32;
+font-size: 32px;
+font-weight: bold;
+}
+
+/* Statistics Cards Responsive */
+
+@media (max-width: 768px) {
+.admin-stats {
+grid-template-columns: 1fr;
+}
+
+.admin-dashboard {
+padding: 15px;
+}
+
+.admin-dashboard table {
+display: block;
+overflow-x: auto;
+}
+}
+
+/* Search Volunteer */
+.volunteer-search {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px 15px;
+  margin: 10px 10px 15px 0;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+.volunteer-search:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 5px rgba(22, 163, 74, 0.25);
+}
+
+/* Event Filter Dropdown */
+select.volunteer-search {
+  cursor: pointer;
+  max-width: 220px;
+}
+
+/* Export CSV Button */
+button {
+  cursor: pointer;
+}
+
+.export-csv-btn {
+  background: #15803d;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.export-csv-btn:hover {
+  background: #166534;
+  transform: translateY(-2px);
+}
+
+.export-csv-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}

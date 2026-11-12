@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Events from './pages/events';
 import Volunteer from './pages/Volunteer';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 
 function Home() {
 return (
@@ -63,6 +65,8 @@ return (
       <Route path="/home" element={<Home />} />
       <Route path="/events" element={<Events />} />
       <Route path="/volunteer" element={<Volunteer />} />
+      <Route path="/admin-login" element={<AdminLogin />} />
+      <Route path="/admin-dashboard" element={<AdminDashboard />} />
     </Routes>
 
     <footer>
