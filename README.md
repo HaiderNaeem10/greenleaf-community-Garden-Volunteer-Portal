@@ -223,3 +223,41 @@ The Events page dynamically displays garden events fetched from the Supabase dat
 Project Goal
 
 The goal of this project is to develop a practical volunteer management platform that connects community members with gardening activities while providing administrators with tools to manage volunteer registrations efficiently.
+
+Admin Dashboard with CSV Export
+
+Developed a secure Admin Dashboard for managing GreenLeaf volunteer registrations.
+
+Features Implemented
+
+- Admin login using Supabase Authentication.
+- Protected Admin Dashboard accessible only to authorized administrators.
+- Fetches volunteer records from Supabase.
+- Displays volunteer names, emails, phone numbers, and event names.
+- Groups volunteers by their registered events.
+- Search volunteers by name, email, phone, or event.
+- Filter volunteers by event.
+- Sort volunteer records by different columns.
+- Export volunteer records to CSV.
+- CSV export respects the current search and event filters.
+
+Technologies Used
+
+- React.js
+- React Router
+- Supabase Authentication
+- Supabase Database
+- JavaScript
+- CSV Export
+
+Testing
+
+- Tested admin login and logout.
+- Verified unauthorized dashboard access is blocked.
+- Tested volunteer search and event filtering.
+- Tested table sorting and event grouping.
+- Verified CSV downloads with filtered records.
+
+Deployment
+
+Latest changes pushed to GitHub and deployed successfully on Netlify.
