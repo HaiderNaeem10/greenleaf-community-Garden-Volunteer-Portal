@@ -20,6 +20,8 @@ function AdminDashboard() {
 
   // Search
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortField, setSortField] = useState('name');
+const [sortDirection, setSortDirection] = useState('asc');
 
   // Fetch volunteer records and event information
   async function fetchVolunteers() {
@@ -121,12 +123,45 @@ function AdminDashboard() {
 
   });
 
+  // Sort volunteers
+function handleSort(field) {
+  if (sortField === field) {
+    setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+  } else {
+    setSortField(field);
+    setSortDirection('asc');
+  }
+}
+
   // Filter volunteers by selected event
 const eventFilteredVolunteers = filteredVolunteers.filter((volunteer) => {
   if (selectedEvent === 'All') return true;
 
   return volunteer.eventTitle === selectedEvent;
 });
+
+// Sort filtered volunteers
+const sortedVolunteers = [...eventFilteredVolunteers].sort((a, b) => {
+  const valueA = (a[sortField] || '').toString().toLowerCase();
+  const valueB = (b[sortField] || '').toString().toLowerCase();
+
+  return sortDirection === 'asc'
+    ? valueA.localeCompare(valueB)
+    : valueB.localeCompare(valueA);
+});
+
+// Group volunteers by event
+const groupedVolunteers = sortedVolunteers.reduce((groups, volunteer) => {
+  const eventName = volunteer.eventTitle;
+
+  if (!groups[eventName]) {
+    groups[eventName] = [];
+  }
+
+  groups[eventName].push(volunteer);
+
+  return groups;
+}, {});
 
   // Export volunteers to CSV
   function exportVolunteers() {
@@ -138,7 +173,7 @@ const eventFilteredVolunteers = filteredVolunteers.filter((volunteer) => {
 
     const headers = ['Name', 'Email', 'Phone', 'Event Name'];
 
-    const rows = volunteers.map((volunteer) => [
+    const rows = sortedVolunteers.map((volunteer) => [
       volunteer.name,
       volunteer.email,
       volunteer.phone || 'Not provided',
@@ -263,29 +298,48 @@ const eventFilteredVolunteers = filteredVolunteers.filter((volunteer) => {
 
         <table>
 
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Event Name</th>
-            </tr>
-          </thead>
+         <thead>
+  <tr>
+    <th>
+      <button onClick={() => handleSort('name')}>Name ↕️</button>
+    </th>
+    <th>
+      <button onClick={() => handleSort('email')}>Email ↕️</button>
+    </th>
+    <th>
+      <button onClick={() => handleSort('phone')}>Phone ↕️</button>
+    </th>
+    <th>
+      <button onClick={() => handleSort('eventTitle')}>Event Name ↕️</button>
+    </th>
+  </tr>
+</thead>
 
-          <tbody>
+         <tbody>
+  {Object.entries(groupedVolunteers).map(([eventName, volunteersList]) => (
+    <React.Fragment key={eventName}>
 
-            {eventFilteredVolunteers.map((volunteer) => (
+      {/* Event Heading */}
+      <tr>
+        <td colSpan="4">
+          <strong>🌱 {eventName}</strong>
+          {' '}({volunteersList.length} Volunteers)
+        </td>
+      </tr>
 
-              <tr key={volunteer.id}>
-                <td>{volunteer.name}</td>
-                <td>{volunteer.email}</td>
-                <td>{volunteer.phone || 'Not provided'}</td>
-                <td>{volunteer.eventTitle}</td>
-              </tr>
+      {/* Volunteers under this event */}
+      {volunteersList.map((volunteer) => (
+        <tr key={volunteer.id}>
+          <td>{volunteer.name}</td>
+          <td>{volunteer.email}</td>
+          <td>{volunteer.phone || 'Not provided'}</td>
+          <td>{volunteer.eventTitle}</td>
+        </tr>
+      ))}
 
-            ))}
-
-          </tbody>
+    </React.Fragment>
+  ))}
+</tbody>
 
         </table>
 
