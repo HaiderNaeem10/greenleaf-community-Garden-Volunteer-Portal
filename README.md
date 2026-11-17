@@ -302,7 +302,7 @@ Testing Checklist
 -  Volunteers are grouped by event.
 -  Search, filtering, and sorting work.
 -  CSV export downloads volunteer records.
--  Live website tested successfully.
+-  Live website tested successfully: https://guileless-starlight-28451c.netlify.app
 
 Deployment Result
 
