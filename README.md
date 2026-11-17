@@ -261,3 +261,49 @@ Testing
 Deployment
 
 Latest changes pushed to GitHub and deployed successfully on Netlify.
+
+Task 5: Deployment and Final Documentation
+
+The GreenLeaf Community Garden Volunteer Portal was successfully deployed on Netlify and connected to GitHub for automatic deployment.
+
+Live Application
+
+https://guileless-starlight-28451c.netlify.app
+
+Deployment Configuration
+
+- Configured Netlify using "netlify.toml".
+- Connected the GitHub repository to Netlify.
+- Added Supabase environment variables:
+  - "REACT_APP_SUPABASE_URL"
+  - "REACT_APP_SUPABASE_ANON_KEY"
+- Configured automatic deployment whenever new changes are pushed to GitHub.
+
+Local Environment Setup
+
+Create a ".env.local" file in the project root and add your Supabase credentials:
+
+REACT_APP_SUPABASE_URL=your_supabase_url
+REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+Install dependencies and start the application:
+
+npm install
+npm start
+
+Testing Checklist
+
+-  Events load dynamically from Supabase.
+-  Volunteer registration works successfully.
+-  Volunteer data is stored in Supabase.
+-  Admin login works with email and password.
+-  Unauthorized dashboard access is blocked.
+-  Admin dashboard displays volunteer records.
+-  Volunteers are grouped by event.
+-  Search, filtering, and sorting work.
+-  CSV export downloads volunteer records.
+-  Live website tested successfully.
+
+Deployment Result
+
+Successfully deployed the application on Netlify and verified all four functional sections: Events, Volunteer Registration, Admin Login, and Admin Dashboard.
